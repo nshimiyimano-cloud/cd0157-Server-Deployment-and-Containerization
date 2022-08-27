@@ -1,0 +1,540 @@
+touch dockerf
+mv dockerf dockerfile 
+nano dockerfile     ---->not found in playground docker 
+vim dockerfile     -->ok we are able to edit
+
+
+https://www.strikingly.com/s/careers#frontend  frontend apply
+https://www.youtube.com/watch?v=1Rs2ND1ryYc css animation claire
+BTC spot wallet address  17yLLWGodzbTpUsr3bYgQZ6siMLNsiHcJJ
+
+USDT spot wallet address  THGBMoQd6wNA411bdfAKobumM7Moo2MsRC
+1,031.55RWF 1USDT
+
+https://youtu.be/1iFE_5wD2Q0 implement paypal in flask(integrate paypal)
+https://www.youtube.com/watch?v=KCNA5eo5q-Q  how to integrate moodle api in ur app
+https://classroom.udacity.com/nanodegrees/nd0044-alg-t2/parts/cd0037/modules/830942ca-97fe-4f46-8a46-a156b765c1e3/lessons/37e6746c-fa27-4f08-9a30-0b8cc5cffa6d/concepts/fea4180b-d817-41e8-9f7d-e0bc013bfd94 how to document api
+
+suggestios after finish trivia api 
+https://ibmstreams.github.io/tutorials/
+https://micro-frontends.org/
+https://www.postman.com/automated-testing/
+https://www.postman.com/automated-testing/
+https://restfulapi.net/
+
+
+
+TO TEST STRIPE GOOGLE API in terminal used for paying process
+curl https://api.stripe.com/v1/balance/history
+
+{
+  "error": {
+    "message": "You did not provide an API key. You need to provide your API key in the Authorization header, using Bearer auth (e.g. 'Authorization: Bearer YOUR_SECRET_KEY'). See https://stripe.com/docs/api#authentication for details, or we can help at https://support.stripe.com/.",
+    "type": "invalid_request_error"
+  }
+}
+
+
+
+sudo apt --fix-broken install
+Reading package lists... Done
+
+0 upgraded, 0 newly installed, 1 to remove and 6 not upgraded.
+1 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] y
+(Reading database ... 213316 files and directories currently installed.)
+
+Processing triggers for desktop-file-utils (0.24-1ubuntu3) ...
+
+jeanluc@nj-Inspiron-5559:~$ sudo apt install docker
+Reading package lists... Done
+Building dependency tree       
+
+After this operation, 58.4 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://cd.archive.ubuntu.com/ubuntu focal/universe amd64 wmdocker amd64 1.5-2 [13.0 kB]
+Get:2 http://cd.archive.ubuntu.com/ubuntu focal/universe amd64 docker all 1.5-2 [1,316 B]
+Fetched 14.3 kB in 12s (1,216 B/s) 
+
+Processing triggers for man-db (2.9.1-1) ...
+
+
+
+
+how i installed docker 
+sudo snap install docker
+docker 20.10.14 from Canonical✓ installed
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ docker version
+
+Client:
+ Version:           20.10.14
+ API version:       1.41
+ Go version:        go1.16.15
+ Git commit:        a224086349
+ Built:             Thu Mar 24 17:14:32 2022
+ OS/Arch:           linux/amd64
+ Context:           default
+ Experimental:      true
+
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/images/json": dial unix /var/run/docker.sock: connect: permission denied
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+free wordpress course linkedin
+https://www.linkedin.com/learning/wordpress-building-child-themes-3/migrating-files-to-your-live-site?autoplay=true&resume=false
+
+
+
+
+
+FIRST DOCKER IMAGE CREATION IN TERMINAL(how to create or build docker image)
+
+
+
+
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo docker image build -t s1deployapp .
+Sending build context to Docker daemon  45.78MB
+Step 1/6 : FROM public.ecr.aws/sam/build-python3.7:latest
+latest: Pulling from sam/build-python3.7
+86cd53ef8d42: Pull complete 
+45c381c19e26: Pull complete 
+7d4e869a98b8: Pull complete 
+94b65bba0fe9: Pull complete 
+9021d60c3471: Pull complete 
+ecb8e862f808: Pull complete 
+496c0a6973f8: Pull complete 
+9dd16c7db859: Pull complete 
+99b88eb4688d: Pull complete 
+Digest: sha256:4d6106060ae28fe3687fdd854ea7b6acd425b42041e754cca64c8c232c3a57e7
+Status: Downloaded newer image for public.ecr.aws/sam/build-python3.7:latest
+ ---> 5b8950dc1f68
+Step 2/6 : COPY . /app
+ ---> 649bd80c866f
+Step 3/6 : WORKDIR /app
+ ---> Running in ef9f5422efcb
+Removing intermediate container ef9f5422efcb
+ ---> dd1f5917ec01
+Step 4/6 : RUN pip install --upgrade pip
+ ---> Running in 781fce18f0b1
+Requirement already satisfied: pip in /var/lang/lib/python3.7/site-packages (22.0.4)
+Collecting pip
+  Downloading pip-22.2.2-py3-none-any.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 265.4 kB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 22.0.4
+    Uninstalling pip-22.0.4:
+      Successfully uninstalled pip-22.0.4
+Successfully installed pip-22.2.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Removing intermediate container 781fce18f0b1
+ ---> 385d6c99a0bc
+Step 5/6 : RUN pip install -r requirements.txt
+ ---> Running in de1dba954f31
+Collecting pyjwt==1.7.1
+  Downloading PyJWT-1.7.1-py2.py3-none-any.whl (18 kB)
+Collecting flask==1.1.2
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.6/94.6 kB 257.3 kB/s eta 0:00:00
+Collecting Jinja2<3.0.0
+  Downloading Jinja2-2.11.3-py2.py3-none-any.whl (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.7/125.7 kB 431.1 kB/s eta 0:00:00
+Collecting MarkupSafe<2.0.0
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
+Collecting ruamel.yaml==0.16.5
+  Downloading ruamel.yaml-0.16.5-py2.py3-none-any.whl (123 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.3/123.3 kB 501.8 kB/s eta 0:00:00
+Collecting itsdangerous==2.0.1
+  Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+Collecting werkzeug==2.0.3
+  Downloading Werkzeug-2.0.3-py3-none-any.whl (289 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 289.2/289.2 kB 650.1 kB/s eta 0:00:00
+Collecting gunicorn==20.0.4
+  Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.9/77.9 kB 411.3 kB/s eta 0:00:00
+Collecting pytest==6.2.2
+  Downloading pytest-6.2.2-py3-none-any.whl (280 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280.1/280.1 kB 504.2 kB/s eta 0:00:00
+Collecting click>=5.1
+  Downloading click-8.1.3-py3-none-any.whl (96 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 385.9 kB/s eta 0:00:00
+Collecting ruamel.yaml.clib>=0.1.2
+  Downloading ruamel.yaml.clib-0.2.6-cp37-cp37m-manylinux1_x86_64.whl (546 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 546.8/546.8 kB 715.5 kB/s eta 0:00:00
+Requirement already satisfied: setuptools>=3.0 in /var/lang/lib/python3.7/site-packages (from gunicorn==20.0.4->-r requirements.txt (line 8)) (47.1.0)
+Collecting toml
+  Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting iniconfig
+  Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+Collecting importlib-metadata>=0.12
+  Downloading importlib_metadata-4.12.0-py3-none-any.whl (21 kB)
+Collecting py>=1.8.2
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 kB 498.0 kB/s eta 0:00:00
+Collecting pluggy<1.0.0a1,>=0.12
+  Downloading pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting attrs>=19.2.0
+  Downloading attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 kB 455.5 kB/s eta 0:00:00
+Collecting packaging
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 241.6 kB/s eta 0:00:00
+Collecting zipp>=0.5
+  Downloading zipp-3.8.1-py3-none-any.whl (5.6 kB)
+Collecting typing-extensions>=3.6.4
+  Downloading typing_extensions-4.3.0-py3-none-any.whl (25 kB)
+Collecting pyparsing!=3.0.5,>=2.0.2
+  Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 kB 534.3 kB/s eta 0:00:00
+Installing collected packages: pyjwt, iniconfig, zipp, werkzeug, typing-extensions, toml, ruamel.yaml.clib, pyparsing, py, MarkupSafe, itsdangerous, gunicorn, attrs, ruamel.yaml, packaging, Jinja2, importlib-metadata, pluggy, click, pytest, flask
+Successfully installed Jinja2-2.11.3 MarkupSafe-1.1.1 attrs-22.1.0 click-8.1.3 flask-1.1.2 gunicorn-20.0.4 importlib-metadata-4.12.0 iniconfig-1.1.1 itsdangerous-2.0.1 packaging-21.3 pluggy-0.13.1 py-1.11.0 pyjwt-1.7.1 pyparsing-3.0.9 pytest-6.2.2 ruamel.yaml-0.16.5 ruamel.yaml.clib-0.2.6 toml-0.10.2 typing-extensions-4.3.0 werkzeug-2.0.3 zipp-3.8.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Removing intermediate container de1dba954f31
+ ---> 484580ce7c64
+Step 6/6 : ENTRYPOINT ["gunicorn", "-b", ":8080", "main:APP"]
+ ---> Running in 60261c81de67
+Removing intermediate container 60261c81de67
+ ---> a6c69777fe45
+Successfully built a6c69777fe45
+Successfully tagged s1deployapp:latest
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ 
+
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo docker image ls
+[sudo] password for jeanluc: 
+REPOSITORY                           TAG       IMAGE ID       CREATED          SIZE
+s1deployapp                          latest    a6c69777fe45   48 minutes ago   1.89GB
+public.ecr.aws/sam/build-python3.7   latest    5b8950dc1f68   5 days ago       1.82GB
+
+
+or 
+
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo docker image list
+REPOSITORY                           TAG       IMAGE ID       CREATED        SIZE
+s1deployapp                          latest    a6c69777fe45   24 hours ago   1.89GB
+public.ecr.aws/sam/build-python3.7   latest    5b8950dc1f68   6 days ago     1.82GB
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-de
+
+in case of error example:
+
+sudo docker run --rm -p 80:8080 --env-file=env.list s1deployapp  xxxxx no because env 
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo docker run --rm -p 8080:80  s1deployapp     :here is abput to run a container
+docker: Error response from daemon: driver failed programming external connectivity on endpoint angry_thompson (1983110d51520f6ef029d7a0d9e0486ba19eaaf8ee9d4e13bac3391b696bc594): Error starting userland proxy: listen tcp4 0.0.0.0:8080: bind: address already in use.
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ 
+
+
+THE WAY TO CHECKUP IF YOUR'RE READY LOGIN 
+
+eanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ cat ~/.docker/config.json
+cat: /home/jeanluc/.docker/config.json: No such file or directory
+
+xxxxxxabove on my machine no i ran this because i was showed that login info they gonna kept in somedir/config.json file 
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo docker login
+[sudo] password for jeanluc: 
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /root/snap/docker/1779/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/server-deployment-containerization$ sudo cat /root/snap/docker/1779/.docker/config.json
+{
+	"auths": {
+		"https://index.docker.io/v1/": {
+			"auth": "bnNoaW1peWltYW5hOjIwMThfOThATGM="
+		}
+	}
+
+
+
+
+
+BEST WAY TO ADD CORS IN OUR APP
+def create_app(test_config=None):
+    # create and configure the app
+    app = Flask(__name__)
+    setup_db(app)
+    CORS(app)
+
+    # CORS Headers
+    @app.after_request
+    def after_request(response):
+        response.headers.add(
+            "Access-Control-Allow-Headers", "Content-Type,Authorization,true"
+        )
+        response.headers.add(
+            "Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS"
+        )
+        return response
+      
+
+YOU SEE DOCKER CONTAINER WHEN THERE IS DOCKER IS STILL Running
+--------------------------------------------------------------
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker ps
+[sudo] password for jeanluc: 
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS     NAMES
+22f42d21d466   s1deployapp   "gunicorn -b :8080 m…"   17 seconds ago   Up 15 seconds             friendly_meitner
+
+TO DELETE CONTAINER  USE container id after run docker ls --all
+
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker rm  b396186cc430
+b396186cc430
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker ps --all
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker rm  b396186cc430
+Error: No such container: b396186cc430
+
+TO DELETE IMAGE WITH IMAGE ID AFTER RUN DOCKER IMAGES OR DOCKER IMAGE LIST ENTER 
+sudo ducker image rm imageid enter
+
+eg unned:
+
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker image rm a6c69777fe45
+Untagged: s1deployapp:latest
+
+Deleted: sha256:dd1f5917ec012b7ad329ba048bb47ec49b16d2659b37cf85e69d8ecba822eff1
+Deleted: sha256:649bd80c866f23b0742e6a766f10a7119103d28b428320f7886f003084978938
+Deleted: sha256:ec11205a771727ccdd626d4c80f554b9d7987947d9fd888151f60e79e9330b9e
+
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker image rm 5b8950dc1f68
+Untagged: public.ecr.aws/sam/build-python3.7:latest
+Untagged: public.ecr.aws/sam/build-python3.7@sha256:4d6106060ae28fe3687fdd854ea7b6acd425b42041e754cca64c8c232c3a57e7
+Deleted: sha256:5b8950dc1f68a083625a03f02d9bfed8c2bf257f5e7000c9b6f54c8bb7f622b8
+Deleted: sha256:3994996bda4b1907ce1d650c6fa3ba94b36b9a77b20ba4a031f712b521c03616
+Deleted: sha256:86026fb4b2f0b731656071a9aab079a678b1f7e8cc60168f3e7bbb2a80e6bced      TO DELETE PULLED IMAGE FROM DOCKER HUB
+
+
+
+AFTER RUN CONTAINER IN THE BROWSER WHAT'S YOU SEE WHEN YOU RUN TO CHECK CONTAINER IS IN RUNNING
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy$ sudo docker ps --all
+[sudo] password for jeanluc: 
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+03e8ec36f061   s1deployapp   "gunicorn -b 0.0.0.0…"   38 minutes ago   Up 38 minutes   0.0.0.0:82->8082/tcp, :::82->8082/tcp   vibrant_lamarr
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy$ systemctl --user start docker-desktop  to open through terminal
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy$ docker compose version   to check version
+^Cjeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy$ sudo docker compose version
+Docker Compose version v2.7.0
+
+
+To enable Docker Desktop to start on login, from the Docker menu, select Settings > General > Start Docker Desktop when you log in.
+
+Alternatively, open a terminal and run:
+
+
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy$  systemctl --user enable docker-desktop
+Created symlink /home/jeanluc/.config/systemd/user/docker-desktop.service → /usr/lib/systemd/user/docker-desktop.service.
+Created symlink /home/jeanluc/.config/systemd/user/graphical-session.target.wants/docker-desktop.service → /usr/lib/systemd/user/docker-desktop.service.
+jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy$ 
+
+BEST WAY TO PUSH WITH USERNAME THAT WHY BEFORE I WAS TOLD NSHIM/s1deployapp:LATEST NOT FOUNT
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker image build -t nshimiyimana/s1deployapp .
+Sending build context to Docker daemon   45.8MB
+Step 1/6 : FROM public.ecr.aws/sam/build-python3.7:latest
+latest: Pulling from sam/build-python3.7
+86cd53ef8d42: Pull complete 
+1.0 pyjwt-1.7.1 pyparsing-3.0.9 pytest-6.2.2 ruamel.yaml-0.16.5 ruamel.yaml.clib-0.2.6 toml-0.10.2 typing-extensions-4.3.0 werkzeug-2.0.3 zipp-3.8.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Removing intermediate container ce00ea5963d9
+ ---> b93ece49d807
+Step 6/6 : ENTRYPOINT ["gunicorn", "-b", "0.0.0.0:8082", "main:APP"]
+ ---> Running in 3a0d514a5e16
+Removing intermediate container 3a0d514a5e16
+ ---> e4a82155bc1c
+Successfully built e4a82155bc1c
+Successfully tagged nshimiyimana/s1deployapp:latest
+
+
+AFTER DEPLOY TO DOCKER
+
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker image push nshimiyimana/s1deployapp:latest
+[sudo] password for jeanluc: 
+The push refers to repository [docker.io/nshimiyimana/s1deployapp]
+116dd8313b1e: Layer already exists 
+
+86026fb4b2f0: Layer already exists 
+latest: digest: sha256:afe86c64fa923d5a70045d8d78d1aaf5154adedbb59cfa57811a587c2af21649 size: 2852
+
+        ABOVE nshimiyimana/s1deployapp will ran like this below
+--------------------------------------------------------------------------------------------------
+
+^C(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ sudo docker run --rm -p  82:8082 nshimiyimana/s1deployapp
+[2022-08-25 21:31:37 +0000] [1] [INFO] Starting gunicorn 20.0.4
+[2022-08-25 21:31:37 +0000] [1] [INFO] Listening at: http://0.0.0.0:8082 (1)
+[2022-08-25 21:31:37 +0000] [1] [INFO] Using worker: sync
+[2022-08-25 21:31:37 +0000] [10] [INFO] Booting worker with pid: 10
+
+Installing or updating the latest version of the AWS CLI
+
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+    after i TOLD
+-------------------------------
+jeanluc@nj-Inspiron-5559:~$ sudo ./aws/install
+[sudo] password for jeanluc: 
+You can now run: /usr/local/bin/aws --version
+
+
+jeanluc@nj-Inspiron-5559:~$  /usr/local/bin/aws --version
+aws-cli/2.7.27 Python/3.9.11 Linux/5.15.0-46-generic exe/x86_64.ubuntu.20 prompt/off
+jeanluc@nj-Inspiron-5559:~$ 
+
+the symbolink link directory which aws installed 
+jeanluc@nj-Inspiron-5559:~$  which aws
+/usr/local/bin/aws
+
+TO CONFERMED THAT AWS INSTAALLED RUN:
+jeanluc@nj-Inspiron-5559:~$ aws --version
+aws-cli/2.7.27 Python/3.9.11 Linux/5.15.0-46-generic exe/x86_64.ubuntu.20 prompt/off
+
+
+use aws confire to configure in terminal 
+
+Important: Do not use the us-east-1 because the EKS cluster creation may fails in us-east-1 mostly
+
+aws configure set region us-east-2
+
+Run this command to see if the AWSCLI is configured correctly. It should return the list of IAM users. 
+aws iam list-users
+
+
+
+TO TEST /auth  ROUTE IN TERMINAL to get token 
+
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ export TOKEN=`curl -d '{"email":"njeanluc828@gmail.com","password":"Imbata_2"}' -H "Content-Type:application/json" -X POST  http://localhost:8082/auth`\
+
+
+   after to check if token generated
+----------------------------------------
+
+(ondockerdeploy) jeanluc@nj-Inspiron-5559:~/Desktop/learn/python/learnflask/ondockerdeploy/server-deployment-containerization$ echo $TOKEN
+{ "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjI3Mzc3MzgsIm5iZiI6MTY2MTUyODEzOCwiZW1haWwiOiJuamVhbmx1YzgyOEBnbWFpbC5jb20ifQ.Ts0co_ZKdWGU853pap_Z8nGYdWiwUhnaqbRhjRMjsRM" }
+
+
+
+Set up the environment
+You will need the following two variables available in your terminal environment:
+
+JWT_SECRET - The text string to be used for creating the JWT.
+LOG_LEVEL - It represents the level of logging. It is optional to be set. It has a default value as 'INFO', but when debugging an app locally, you may want to set it to 'DEBUG'.
+To add these to your terminal environment, run the following:
+
+ # A secret text string to be used to creating a JWT
+ export JWT_SECRET='myjwtsecret'
+ export LOG_LEVEL=DEBUG
+ # Verify
+ echo $JWT_SECRET
+ echo $LOG_LEVEL
+Run the app
+Run the app using the Flask server, from the root directory of the downloaded repository, run:
+ python main.py
+Open http://127.0.0.1:8080/ in a new browser OR run curl --request GET http://localhost:8080/ on the command-line terminal. It will give you a response as "Healthy".
+Install a command-line JSON processor
+Before trying to access other endpoints of the app, we need the jq, a package that helps to pretty-print JSON outputs. In simple words, the JQ package helps you parse, filter, or modify JSON outputs. Open a new terminal window, and run the command below.
+# For Linux
+sudo apt-get install jq 
+
+
+
+export TOKEN=`curl --data '{"email":"abc@xyz.com","password":"mypwd"}' --header "Content-Type: application/json" -X POST localhost:8080/auth  | jq -r '.token'`       to post request
+
+
+curl --request GET 'http://localhost:8080/contents' -H "Authorization: Bearer ${TOKEN}" | jq .           to get request
+
+
+
+
+
+Store Environment Variables
+Containers cannot read the values stored in your localhost's environment variables. Therefore, create a file named .env_file and save both JWT_SECRET and LOG_LEVEL into that .env_file. We will use this file while creating the container. Here, we do not need the export command, just an equals sign:
+JWT_SECRET='myjwtsecret'
+LOG_LEVEL=DEBUG
+This .env_file is only for the purposes of running the container locally, you do not want to push it into the Github or other public repositories. You can prevent this by adding it to your .gitignore file, which will cause git to ignore it. To safely store and use secrets in the cloud, use a secure solution such as AWS’s parameter store.
+Start the Docker Desktop service.
+Build an image
+Build a local Docker image, by running the commands below from the directory where your Dockerfile resides:
+docker build -t myimage .
+# Other useful commands
+Create and run a container
+Create and run a container using the image locally:
+You can pass the name of the env file using the flag --env-file=<YOUR_ENV_FILENAME>.
+You should expose the port 8080 of the container to port 80 on your host machine.
+docker run --name myContainer --env-file=.env_file -p 80:8080 myimage
+# Other useful commands
+# List running containers
+docker container ls
+docker ps
+# Stop a container
+docker container stop <container_id>
+# Remove a container
+docker container rm <container_id>
+
+
+sudo docker image build -t nshimiyimana/docker1deployapp .
+sudo docker image push nshimiyimana/docker1deployapp:latest  this where we have added env file
+
+
+
+          Run the app on AWS Cloud
+------------------------------------------------
+The next section of the project aims to create a CI/CD pipeline. The steps you will follow are:
+
+1. Create an EKS Cluster, IAM Role for CodeBuild, and Authorize the CodeBuild
+Create an EKS Cluster - Start with creating an EKS cluster in your preferred region, using eksctl command.
+IAM Role for CodeBuild - Create an IAM role that the Codebuild will assume to access your k8s/EKS cluster. This IAM role will have the necessary access permissions (attached JSON policies),
+Authorize the CodeBuild using EKS RBAC - Add IAM Role to the Kubernetes cluster's configMap.
+
+2. Deployment to Kubernetes using CodePipeline and CodeBuild
+Generate a Github access token
+Cenerate an access-token from your Github account. We will share this token with the Codebuild service so that it can listen to the the repository commits.
+Create Codebuild and CodePipeline resources using CloudFormation template
+Create a pipeline watching for commits to your Github repository using Cloudformation template (.yaml) file.
+Set a Secret using AWS Parameter Store
+In order to pass your JWT secret to the app in Kubernetes securely, you will set the JWT secret using AWS parameter store.
+Build and deploy
+Finally, you will trigger the build based on a Github commit.
+
+
+
+
+
+
+                1. Create an EKS (Kubernetes) Cluster
+---------------------------------------------------------------------------------
+Create - Create an EKS cluster named “simple-jwt-api” in a region of your choice:
+eksctl create cluster --name simple-jwt-api --nodes=2 --version=1.22 --instance-types=t2.medium --region=us-east-2
+
+sudo docker run --rm -p 8082:8082 -env_file=.env_file  nshimiyimana/docker1deployapp
+[2022-08-26 19:31:46 +0000] [1] [INFO] Starting gunicorn 20.0.4
+[2022-08-26 19:31:46 +0000] [1] [INFO] Listening at: http://0.0.0.0:8082 (1)
+
+to configure aws account 
+
+aws configure
+access key id:-----
+secret acces key ---
+farmat----:json   enter
+
+
+
+eksctl is to create infrastructure
+kubuectl is to manage infrastructure
+
+
+
+
+
+
+
+
+
