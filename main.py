@@ -2,6 +2,7 @@
 """
 A simple app to create a JWT token.
 """
+
 import os
 import logging
 import datetime
@@ -118,3 +119,4 @@ def _get_jwt(user_data):
 
 if __name__ == '__main__':
     APP.run(host='127.0.0.1', port=8082, debug=True)
+import platform
