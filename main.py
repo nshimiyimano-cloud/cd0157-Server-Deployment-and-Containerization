@@ -100,7 +100,6 @@ def decode_jwt():
 
 
     response = {'email': data['email'],
-               'password': data['password'] ,
                 'exp': data['exp'],
                 'nbf': data['nbf']
                           
@@ -112,11 +111,9 @@ def _get_jwt(user_data):
     exp_time = datetime.datetime.utcnow() + datetime.timedelta(weeks=2)
     payload = {'exp': exp_time,
                'nbf': datetime.datetime.utcnow(),
-               'email': user_data['email'],
-               'password': user_data['password']
+               'email': user_data['email']
                }
     return jwt.encode(payload, JWT_SECRET, algorithm='HS256')
 
 if __name__ == '__main__':
-    APP.run(host='127.0.0.1', port=8082, debug=True)
-import platform
+    APP.run(host='127.0.0.1', port=8080, debug=True)
